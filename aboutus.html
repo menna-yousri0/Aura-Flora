@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>About Us</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: white;
+    color: #333;
+  }
+  .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%; 
+  padding: 10px 25px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: rgb(255, 240, 247);
+  box-shadow: 0 2px 30px rgba(0,0,0,0.1);
+  z-index: 999;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+}
+
+.mode-images {
+display: flex;
+flex-direction: column; 
+align-items: center; 
+gap: 10px; 
+}
+
+.mode-images img {
+width: 20px;
+height: 20px;
+transition: transform 0.3s ease;
+margin-right: 10px; 
+}
+
+
+
+.home-icon {
+  margin-right: 8px; 
+  width: 24px; 
+  height: 24px; 
+}
+
+.brand-name {
+  font-family: 'Open Sans', 'Helvetica Neue';
+  font-size: 24px;
+  font-weight: bold; 
+  margin-right: 20px; 
+  text-decoration: none;
+
+}
+
+.nav-logo {
+  width: 40px; 
+  height: 40px;
+}
+
+.nav-home {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+
+.nav-home img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.nav-wrapper {
+  width: 100%;
+  max-width: 1500px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; 
+  padding: 0 20px; 
+}
+
+
+.nav-left, .nav-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-left {
+  margin-bottom: 10px;
+}
+
+.nav-right {
+  gap: 25px; 
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.nav-item img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+
+
+.nav-photo {
+width: 60px;  
+height: 60px;
+margin-right: 10px;
+vertical-align: middle;
+}
+
+.nav-photo:last-of-type {
+width: 30px;  
+height: 30px;
+}
+
+body.dark-mode {
+  background-color: #333;
+  color: white;
+}
+body.dark-mode .footer-wrapper {
+  background-color: #222;
+}
+
+
+body.dark-mode .flower-item p{
+  color: white;
+}
+
+body.dark-mode .flower-slider img {
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+
+body.dark-mode .new-image img {
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+
+
+
+body.dark-mode .quick-links h2 {
+  color: rgb(180, 100, 160);
+}
+
+body.dark-mode .heb{
+color: white;
+}
+
+body.dark-mode .amazing{
+  background-color: #333;
+}
+body.dark-mode .price-box{
+  color: white;
+}
+body.dark-mode .fade-in-text {
+  color: rgb(180, 100, 160);
+}
+body.dark-mode .from-company{
+  color: white;
+  background-color: rgb(60, 60, 60) ;
+}
+.footer-wrapper {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  transform: scale(1.02);
+}
+
+.main-footer {
+  background-color: rgb(255, 240, 247);
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: black;
+  padding: 5px 20px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+  margin: 10px;
+}
+
+.footer-section h3 {
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: rgb(180, 100, 160);
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 40px;
+}
+
+.footer-section a {
+  text-decoration: none;
+  color: black;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: #d63384;
+  transform: translateX(5px);
+}
+
+.payment-logos {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.payment-logos img {
+  width: 50px;
+  height: auto;
+}
+
+.bottom-footer {
+  background-color: #322f2f;
+  padding: 10px 0;
+  text-align: center;
+  color: white;
+  font-size: 12px;
+}
+
+
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 10px 20px;
+    }
+
+    .nav-wrapper {
+        flex-direction: column; 
+        align-items: center;
+        gap: 20px;
+    }
+
+    .nav-left, .nav-right {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .nav-home, .nav-item {
+        font-size: 18px;
+    }
+
+    .nav-item img {
+        width: 24px;
+        height: 24px; 
+    }
+
+    .search-box input[type="text"] {
+        width: 100%; 
+        max-width: 300px; 
+    }
+
+    .search-box button {
+        width: auto; 
+    }
+}
+
+
+@media (max-width: 768px) {
+    .nav-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-home, .nav-item {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .nav-item img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .nav-left, .nav-right {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-box {
+      flex-direction: column;
+      width: 100%;
+  }
+}
+
+
+.dark-mode body h1,
+.dark-mode body p,
+.dark-mode body a {
+  color: white !important;
+}
+
+.dark-mode .navbar a,
+.dark-mode .navbar {
+  color: black !important;
+}
+body.dark-mode {
+  background-color: #333;
+  color: white;
+}
+
+body.dark-mode div {
+  color: white;
+}
+    </style>
+
+</head>
+<body>
+<!-- Navigation bar -->
+<nav class="navbar">
+  <div class="nav-wrapper">
+    <div class="nav-left">
+      <img class="nav-logo" src="https://cdn.pixabay.com/photo/2012/04/13/00/44/leaves-31399_1280.png" alt="">
+      <a href="index.html" class="brand-name">
+        <span style="color: rgb(180, 100, 160);"> Aura Flora</span>
+      </a>
+    </div>
+    <div class="nav-right">
+      <a href="log.html" class="nav-item" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/128/1144/1144760.png" alt="Login Icon">
+        Log In
+      </a>
+      <a href="basket.html" class="nav-item"target="_blank" >
+        <img src="https://cdn-icons-png.flaticon.com/128/263/263142.png" alt="Basket Icon">
+        Basket
+      </a>
+      
+      <img class="nav-photo" src="https://img.icons8.com/?size=64&id=49318&format=png">
+      <div class="mode-images" >
+        <img onclick="toggleDarkMode()" src="https://cdn-icons-png.flaticon.com/128/606/606807.png" alt=" " title="Dark Mode">
+      </div>
+      
+      
+      
+    </div>
+  </div>
+</nav>
+
+
+
+<div style="padding-left:100px;">
+  <div style="font-size: 50px;padding-top: 70px;"><b>“Who are we?”</b></div>
+  <div style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 15px;word-spacing: 5px;">
+  In early 2021, Aura Flora launched a comprehensive e-commerce platform, providing prime fresh-cut imported flowers arranged by a professional team of florists and designers.
+Aura Flora is leading the way in Egypt by providing a wide range of special flowers, chocolates, perfumes, silver, gold, candles, electronics, skin care products, watches and mixed bundles<br>
+More than just an online flower shop, Aura Flora aims to deliver a unique shopping experience to its clients with just a few clicks.
+</div>
+<!--“What sets us apart?”-->
+<div style="font-size: 50px;padding-top: 20px;"><b> “What sets us apart?”</b></div>
+<div style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 15px;word-spacing: 5px;">
+  At Aura Flora, we're dedicated to simplifying the process of sending flowers and gifts, ensuring it's as enjoyable as receiving them.<br>
+Every day, we carefully select the finest flowers from global farmers to create stunning arrangements for any occasion. Plus, we offer a diverse range of gifts through partnerships with local and international brands, including chocolates, perfumes, cakes, jewelry, and more.
+We import high-quality flowers from Kenya, Ecuador, and the Netherlands, while our design team stays updated on the latest trends.<br>
+Each flower delivery is handled with care, arriving fresh and beautiful.
+ We accept various payment methods for your convenience.<br>
+Our website and app are user-friendly, making it easy to find the perfect gift.<br>
+We're always adding new products to keep things exciting for our customers.
+</div>
+<!--Mission-->
+<div style="font-size: 50px;padding-top: 20px;"><b>Mission</b></div>
+<div style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 15px;word-spacing: 5px;">
+  Redefine gifting through online rose and gifts sales, prioritizing satisfaction and trust. Make every gift special and effortless.
+</div>
+<!--Vision-->
+<div style="font-size: 50px;padding-top: 20px;"><b>Vission</b></div>
+<div style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 15px;word-spacing: 5px;">
+Leading global gift-giving innovation, pioneering natural rose products in Egypt.
+</div>
+<!--Values-->
+<div style="font-size: 50px;padding-top: 20px;"><b>Values</b></div>
+<div style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 15px;word-spacing: 5px; padding-bottom: 50px;">
+  1- Quality
+<br><br>
+  2- Diversity
+  <br><br>
+  3. Satisfaction
+  <br><br>
+  4- Convenience
+  <br><br>
+  5- Customization 
+  <br><br>
+  6- Express delivery
+</div>
+
+</div>
+
+</div>
+
+ <!-- footer -->
+<div class="footer-wrapper">
+  <footer class="main-footer">
+    <div class="footer-container">
+      
+      <div class="footer-section">
+        <h3>Get To Know Us</h3>
+        <ul>
+          <li><a href="aboutus.html" target="_blank">About Us</a></li>
+          <li><a href="faqs.html" target="_blank">FAQs</a></li>
+          <li><a href="Policy.html" target="_blank">Privacy Policy</a></li>
+          <li><a href="contact.html" target="_blank">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>My Account</h3>
+        <ul>
+          <li><a href="log.html" target="_blank">Log In</a></li>
+          <li><a href="basket.html" target="_blank">Basket</a></li>
+          <li><a href="infor.html" target="_blank">My Orders</a></li>
+          <li><a href="contact.html" target="_blank">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <ul>
+          <li>022856466</li>
+          <li>0124576488</li>
+          <li>0105589690</li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Payment Methods</h3>
+        <div class="payment-logos">
+          <img src="https://i.postimg.cc/SRdVrWyv/cash1.jpg" alt="أمان"  style="width: 50px; height: auto;">
+          <img src="https://i.postimg.cc/SsW-gnBHq/cash2.png"  alt="أبل باي" style="width: 50px; height: auto;">
+          <img src="https://i.postimg.cc/2j7Hrf47/cash3.png"  alt="الايد الي ماسكة ورد" style="width: 50px; height: auto;">
+          <img src="https://i.postimg.cc/7Zd9mPkw/cash8.png"  alt="SYMPL" style="width: 50px; height: auto;">
+          <img src="https://i.postimg.cc/GtLxHHkJ/cash11.png"  alt="value" style="width: 50px; height: auto;">
+          <img src="https://i.postimg.cc/Ss7GSW-zx/cash12.png"  alt="visa" style="width: 50px; height: auto;">
+          <img src="https://i.postimg.cc/rsMQxhL4/cash4.jpg"  alt="Contact" style="width: 50px; height: auto;">
+          <img src="https://i.postimg.cc/Gh3XpSKw/cash5.png"  alt="فرصة" style="width: 50px; height: auto;">
+          <img src="https://i.postimg.cc/43c5MCft/cash6.png"  alt="master card" style="width: 50px; height: auto;">
+          <img src="https://i.postimg.cc/zXd0HS2L/cash7.png"  alt="اورنج كاش" style="width: 50px; height: auto;">
+          <img src="https://i.postimg.cc/7Zd9mPkw/cash8.png"  alt="بايموب" style="width: 50px; height: auto;">
+          <img src="https://i.postimg.cc/vZcXrgC0/cash9.png"  alt="بريميوم كارد" style="width: 50px; height: auto;">
+          <img src="https://i.postimg.cc/4yWbtsPC/cash13.png"  alt="فودافون كاش" style="width: 50px; height: auto;">
+
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <div class="bottom-footer">
+    © 2025 Oraflora. All rights reserved.
+  </div>
+</div>
+</div>
+<script>
+  window.onload = function() {
+      if (localStorage.getItem('dark-mode') === 'enabled') {
+          document.body.classList.add('dark-mode');
+      }
+  };
+
+  function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+      
+      if (document.body.classList.contains('dark-mode')) {
+          localStorage.setItem('dark-mode', 'enabled');
+      } else {
+          localStorage.setItem('dark-mode', 'disabled');
+      }
+  }
+</script>
+
+
+</body>
+</html>

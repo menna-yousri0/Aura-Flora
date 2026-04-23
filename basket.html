@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BASKET</title>
+  <style>
+  .navbar {
+    text-align: center;
+    position: fixed;
+    text-align: center;
+    padding: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    padding: 10px 25px;
+    background-color: rgb(255, 240, 247);
+    box-shadow: 0 2px 30px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+   
+  }
+
+.mode-images {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  gap: 10px; 
+}
+
+.mode-images img {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+  margin-right: 10px; 
+}
+
+
+.nav-home {
+    display: flex;
+    align-items: center;
+}
+
+.home-icon {
+    margin-right: 8px; 
+    width: 24px; 
+    height: 24px; 
+}
+
+.brand-name {
+    font-family: 'Open Sans', 'Helvetica Neue';
+    font-size: 24px;
+    font-weight: bold; 
+    margin-right: 20px; 
+    text-decoration: none;
+
+}
+
+.nav-logo {
+    width: 40px; 
+    height: 40px;
+}
+
+.nav-home {
+    width: 100%;
+    margin-left: 50px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.nav-home img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.nav-wrapper {
+    width: 100%;
+    max-width: 1500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; 
+    padding: 0 20px; 
+   
+}
+
+.nav-left, .nav-right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-left {
+    margin-bottom: 10px;
+}
+
+.nav-right {
+    gap: 25px; 
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.nav-item img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+
+
+.nav-photo {
+  width: 60px;  
+  height: 60px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.nav-photo:last-of-type {
+  width: 30px;  
+  height: 30px;
+}
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+    }
+    .basket-container {
+      max-width: 700px;
+      margin: 80px auto 0 auto;
+      background-color: rgb(255,240,247);
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 12px;
+
+    }
+    h1 {
+      color: #e267ab;
+      text-align: center;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 20px;
+      padding-top: 50px;
+    }
+    
+    
+    .text-gray-400 {
+            text-align: center;
+    }
+
+    .basket-items {
+        margin-top: 20px;
+    }
+    .basket-item {
+      display: grid;
+      grid-template-columns: 3fr 1fr 1fr;
+      align-items: right;
+      padding: 15px 0;
+      border-bottom: 1px solid  #e267ab;
+      text-align: right;
+    }
+    .item-info {
+        display: flex;
+        align-items: center;
+    }
+    .item-image {
+      width: 80px;
+      height: 80px;
+      margin-left: 15px;
+      border-radius: 5px;
+      object-fit: cover;
+    }
+    .item-details h3 {
+        margin: 0;
+        color: #333;
+    }
+    .item-details p {
+        margin: 5px 0;
+        color: #666;
+    }
+    .item-price {
+      font-weight: bold;
+      color: #a8427a;
+    }
+    .quantity-controls button {
+      background-color: #f8bbd0;
+      border: none;
+      width: 30px;
+      height: 30px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      color: #ad1457;
+    }
+    .quantity-controls span {
+      margin: 0 10px;
+      min-width: 20px;
+      text-align: center;
+    }
+    .remove-item {
+      background: none;
+      border: none;
+      color: #ff5252;
+      cursor: pointer;
+      font-size: 20px;
+    }
+    .basket-summary {
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 2px solid #eee;
+        text-align: left;
+    }
+    .total-price {
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+    }
+    .checkout-btn {
+        background-color: #e267ab;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 15px;
+        width: 100%;
+    }
+    .checkout-btn:hover {
+        background-color: #a8427a;
+    }
+    .basket-background {
+        background-image: url('https://images.pexels.com/photos/5857828/pexels-photo-5857828.jpeg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 100vh;
+        padding: 20px;
+        background-attachment: fixed;
+    }
+    .footer-wrapper {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  transform: scale(1.02);
+}
+
+.main-footer {
+  background-color: rgb(255, 240, 247);
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: black;
+  padding: 5px 20px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+  margin: 10px;
+}
+
+.footer-section h3 {
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: rgb(180, 100, 160);
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 40px;
+}
+
+.footer-section a {
+  text-decoration: none;
+  color: black;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: #d63384;
+  transform: translateX(5px);
+}
+
+.payment-logos {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.payment-logos img {
+  width: 50px;
+  height: auto;
+}
+
+.bottom-footer {
+  background-color: #322f2f;
+  padding: 10px 0;
+  text-align: center;
+  color: white;
+  font-size: 12px;
+}
+  </style>
+</head>
+<body>
+  <!-- Navigation bar -->
+<nav class="navbar">
+  <div class="nav-wrapper">
+    <div class="nav-left">
+      <img class="nav-logo" src="https://cdn.pixabay.com/photo/2012/04/13/00/44/leaves-31399_1280.png" alt="">
+      <a href="index.html" class="brand-name">
+        <span style="color: rgb(180, 100, 160);"> Aura Flora</span>
+      </a>
+    </div>
+    <div class="nav-right">
+      <a href="log.html" class="nav-item">
+        <img src="https://cdn-icons-png.flaticon.com/128/1144/1144760.png" alt="Login Icon">
+        Log In
+      </a>
+      <a href="basket.html" class="nav-item">
+        <img src="https://cdn-icons-png.flaticon.com/128/263/263142.png" alt="Basket Icon">
+        Basket
+      </a>
+      <img class="nav-photo" src="https://img.icons8.com/?size=64&id=49318&format=png">
+      <div class="mode-images" >
+        <img onclick="toggleDarkMode()" src="https://cdn-icons-png.flaticon.com/128/606/606807.png" alt=" " title="Dark Mode">
+      </div>
+      
+      
+    </div>
+  </div>
+</nav>
+    <div class="cart-item" id="cartContainer"></div>
+<div class="basket-background">
+  <div class="basket-container">
+    <h1>BASKET</h1>
+    <div id="cartContainer"></div>
+    <div id="basketItems"id="basketItems"></div>
+    <div class="basket-summary">
+    <p class="total-price">Total: <span id="totalPrice">0.00</span> EGP</p>
+     <button class="checkout-btn" onclick="window.location.href='infor.html'">Check out</button>
+            </div>
+    </div>
+    </div>
+  </div>
+  
+<!-- footer -->
+<div class="footer-wrapper">
+  <footer class="main-footer">
+    <div class="footer-container">
+      
+      <div class="footer-section">
+        <h3>Get To Know Us</h3>
+        <ul>
+          <li><a href="aboutus.html" target="_blank">About Us</a></li>
+          <li><a href="faqs.html" target="_blank">FAQs</a></li>
+          <li><a href="Policy.html" target="_blank">Privacy Policy</a></li>
+          <li><a href="contact.html" target="_blank">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>My Account</h3>
+        <ul>
+          <li><a href="log.html" target="_blank">Log In</a></li>
+          <li><a href="basket.html" target="_blank">Basket</a></li>
+          <li><a href="infor.html" target="_blank">My Orders</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <ul>
+          <li>022856466</li>
+          <li>0124576488</li>
+          <li>0105589690</li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Payment Methods</h3>
+        <div class="payment-logos">
+          <img src="https://i.postimg.cc/SRdVrWyv/cash1.jpg" alt="أمان"  style="width: 50px; height: auto;">
+          <img src="https://i.postimg.cc/SsW-gnBHq/cash2.png"  alt="أبل باي" style="width: 50px; height: auto;">
+          <img src="https://i.postimg.cc/2j7Hrf47/cash3.png"  alt="الايد الي ماسكة ورد" style="width: 50px; height: auto;">
+          <img src="https://i.postimg.cc/7Zd9mPkw/cash8.png"  alt="SYMPL" style="width: 50px; height: auto;">
+          <img src="https://i.postimg.cc/GtLxHHkJ/cash11.png"  alt="value" style="width: 50px; height: auto;">
+          <img src="https://i.postimg.cc/Ss7GSW-zx/cash12.png"  alt="visa" style="width: 50px; height: auto;">
+          <img src="https://i.postimg.cc/rsMQxhL4/cash4.jpg"  alt="Contact" style="width: 50px; height: auto;">
+          <img src="https://i.postimg.cc/Gh3XpSKw/cash5.png"  alt="فرصة" style="width: 50px; height: auto;">
+          <img src="https://i.postimg.cc/43c5MCft/cash6.png"  alt="master card" style="width: 50px; height: auto;">
+          <img src="https://i.postimg.cc/zXd0HS2L/cash7.png"  alt="اورنج كاش" style="width: 50px; height: auto;">
+          <img src="https://i.postimg.cc/7Zd9mPkw/cash8.png"  alt="بايموب" style="width: 50px; height: auto;">
+          <img src="https://i.postimg.cc/vZcXrgC0/cash9.png"  alt="بريميوم كارد" style="width: 50px; height: auto;">
+          <img src="https://i.postimg.cc/4yWbtsPC/cash13.png"  alt="فودافون كاش" style="width: 50px; height: auto;">
+
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <div class="bottom-footer">
+    © 2025 Auraflora. All rights reserved.
+  </div>
+</div>
+
+
+
+<script>
+  let products = JSON.parse(localStorage.getItem('basket')) || [];
+  const basketItemsContainer = document.getElementById('basketItems');
+  const totalPriceElement = document.getElementById('totalPrice');
+
+  function renderBasketItems() {
+    basketItemsContainer.innerHTML = '';
+    let total = 0;
+
+    products.forEach(product => {
+      total += product.price * product.quantity;
+
+      const itemElement = document.createElement('div');
+      itemElement.className = 'basket-item';
+      itemElement.innerHTML = `
+        <div class="item-info">
+          <img src="${product.image}" class="item-image" alt="${product.name}">
+          <div class="item-details">
+            <h3>${product.name}</h3>
+            <p class="item-price">${product.price} EGP</p>
+          </div>
+        </div>
+        <div class="quantity-controls">
+          <button onclick="decreaseQuantity(${product.id})">-</button>
+          <span>${product.quantity}</span>
+          <button onclick="increaseQuantity(${product.id})">+</button>
+        </div>
+        <button class="remove-item" onclick="removeItem(${product.id})">×</button>
+      `;
+      basketItemsContainer.appendChild(itemElement);
+    });
+
+    totalPriceElement.textContent = total.toFixed(2);
+  }
+
+  function increaseQuantity(productId) {
+    const product = products.find(p => p.id === productId);
+    if (product) {
+      product.quantity++;
+      updateStorage();
+    }
+  }
+
+  function decreaseQuantity(productId) {
+    const product = products.find(p => p.id === productId);
+    if (product && product.quantity > 1) {
+      product.quantity--;
+      updateStorage();
+    }
+  }
+
+  function removeItem(productId) {
+    products = products.filter(p => p.id !== productId);
+    updateStorage();
+  }
+
+  function updateStorage() {
+    localStorage.setItem('basket', JSON.stringify(products));
+    renderBasketItems();
+  }
+
+  
+  const newProductData = localStorage.getItem("cartProduct");
+  if (newProductData) {
+    const newProduct = JSON.parse(newProductData);
+    const existingProduct = products.find(p => p.id === newProduct.id);
+
+    if (existingProduct) {
+      existingProduct.quantity += 1;
+    } else {
+      newProduct.quantity = 1;
+      products.push(newProduct);
+    }
+
+    localStorage.removeItem("cartProduct"); 
+    localStorage.setItem("basket", JSON.stringify(products));
+  }
+
+  renderBasketItems();
+</script>
+
+</body>
+</html>

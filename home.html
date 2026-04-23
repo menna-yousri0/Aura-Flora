@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="arabic" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>مدرسينك</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rakkas&display=swap&subset=arabic" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            overflow-x: hidden;
+            font-family: 'Tahoma', 'Arial', sans-serif;
+        }
+        .overphoto {
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        .contere {
+            position: relative;
+            height: 100vh; 
+            overflow: hidden;
+        }
+        .contere img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .text {
+            position: fixed;
+            top: 0;
+            color: aliceblue;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            right: 0;
+            left: 0;
+            z-index: 10;
+            transition: all 0.3s ease; 
+        }
+        .text h1 {
+            margin: 0;
+            font-family: 'Rakkas', cursive;
+            font-size: 28px;
+        }
+
+        .text.scrolled {
+            background-color: rgba(0, 188, 212, 0.95);
+            color: white;   
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .text.scrolled h2,
+        .text.scrolled h3,
+        .text.scrolled h4 {
+            color: white;
+            border-color: white;
+        }
+        .text.scrolled h5 {
+            background-color: white;
+            color: #00bcd4;
+        }
+        .hhh {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        h2, h3, h4, h5 {
+            padding: 8px 15px;
+            margin: 0;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        h2 {
+            border-bottom: 2px solid transparent;
+        }
+        h2:hover {
+            border-bottom: 2px solid white;
+        }
+        h3 {
+            border-radius: 50px;
+            border: 2px solid #00bcd4;
+        }
+        h4 {
+            border-radius: 100px;
+            border: 2px solid #00bcd4;
+        }
+        h5 {
+            border-radius: 50px;
+            background-color: #00bcd4;
+            border: 2px solid #00bcd4;
+        } 
+        .text2 {
+            color: aliceblue;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            text-align: center;
+            width: 80%;
+        }
+        .text2 h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-family: 'Rakkas', cursive;
+        }
+        .text2 p {
+            font-size: 1.5rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .slide-in {
+            opacity: 0;
+            transform: translateX(100px); 
+            color: #00bcd4;
+            padding: 15px;  
+            margin: 40px auto; 
+            width: fit-content;
+            font-family: 'Rakkas', cursive;
+            font-size: 40px;
+            text-align: center;
+        }
+        .slide-in.visible {
+            opacity: 1;
+            transform: translateX(0);
+            transition: all 0.8s ease;
+        }
+        .spacer {
+            height: 50px;
+        }
+        .photo {
+            padding: 20px;
+            display: flex;
+            gap: 60px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .photo-card {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            text-align: center; 
+            width: 280px;
+            transition: transform 0.3s ease;
+        }
+        .photo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+         .photo-row{ 
+            display: flex;
+             justify-content: center;
+              gap:5x;
+               flex-wrap: wrap; 
+            } 
+        .photo-card2{ 
+            position: relative;
+            width: 250px;
+            height: 250px; 
+            margin: 70px; } 
+        .photo-card2 img{
+             width: 100%;
+             height: 100%;
+              border-radius: 20px; }
+         .photo-min{
+             position: absolute;
+             font-size: 45px;
+              font-weight: bold;
+               text-align: center; 
+               color:#006064;
+                top: -10px;
+                font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+                transition: transform 0.3s ease;
+             } 
+         .photo-min:hover { 
+            transform: scale(1.05) translateY(-10px);
+         }
+        .img-container {
+            overflow: hidden;
+            border-radius: 15px;
+            margin-bottom: 15px;
+        }
+        .img-container img {
+            width: 100%;
+            height: auto; 
+            transition: transform 0.5s ease;
+        }
+        .img-container img:hover {
+            transform: scale(1.05);
+        }
+         .photo-text h2 {
+            color: #006064;
+            font-size: 22px;
+            margin: 10px 0;
+        }
+        .photo-text h3 {
+            color: #424242;
+            font-size: 18px;
+            margin: 10px 0;
+            border: none;
+        }
+        .photo-text p {
+            font-size: 18px;
+            margin: 15px 0;
+        }
+        .photo-text .price {
+            font-weight: bold;
+            color: #00bcd4;
+        }
+        .photo-text del {
+            color: #bdbdbd;
+            font-size: 16px;
+        } 
+        
+         Slider Styles
+        .slider-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding: 30px 0;
+            box-sizing: border-box;
+            margin: 30px 0;
+        }
+        .photo2-slider {
+            width: 100%;
+            overflow: hidden;
+        }
+        .photo2-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out; 
+            gap: 25px;
+            padding: 0 5%;
+        } 
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 188, 212, 0.8);
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 10;
+            padding: 12px 18px;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+        .slider-btn:hover {
+            background-color: rgba(0, 188, 212, 1);
+        }
+        .slider-btn.left {
+            right: 20px;
+        }
+        .slider-btn.right {
+            left: 20px;
+        }
+        
+        /* Footer Styles - التصميم المحسن للفوتر */
+        .footer-container {
+            width: 100%;
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
+        .footer {
+            position: relative; 
+            height: 500px;
+            overflow: hidden; 
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .footer img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+        .slide-bottom {
+            position: absolute;
+            top: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 9;
+            color: white;
+            font-family: 'Rakkas', cursive;
+            font-size: 36px;
+            text-align: center;
+            width: 100%;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        .slide-bottom h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .slide-bottom p {
+            font-size: 0.8em;
+            margin: 8px 0;
+            font-family: 'Tahoma', sans-serif;
+        }
+        .icon {
+            display: flex; 
+            position: absolute;
+            top: 83%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 9;
+            justify-content: center;  
+            gap: 30px; 
+            width: 100%;
+        }
+        .icon img {
+            width: 50px;
+            height: auto;
+            padding: 12px;
+            z-index: 40;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        .icon img:hover {
+            transform: scale(1.15);
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+        
+        /* تصميم القسم السفلي الإضافي */
+        .footer-bottom {
+            width: 100%;
+            background-color:black;
+            color: white;
+            text-align: center;
+            padding: 5px 0;
+            margin: 0;
+        }
+        .footer-bottom p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+        
+        /* تحسينات للشاشات الصغيرة */
+        @media (max-width: 768px) {
+            .text {
+                flex-direction: column;
+                padding: 10px;
+            }
+            .hhh {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .text2 h1 {
+                font-size: 2.5rem;
+            }
+            .text2 p {
+                font-size: 1.1rem;
+            }
+            .slide-in {
+                font-size: 30px;
+            }
+            .photo {
+                gap: 30px;
+            }
+            .slider-btn {
+                padding: 8px 14px;
+                font-size: 18px;
+            }
+            .slide-bottom h1 {
+                font-size: 2em;
+            }
+            .icon {
+                top: 60%;
+            }
+            .icon img {
+                width: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- صورة الغلاف -->
+    <div class="contere">
+        <img src="https://images.freeimages.com/variants/cW371SLHFD7ucxEX4bquh8q3/f4a36f6589a0e50e702740b15352bc00e4bfaf6f58bd4db850e167794d05993d?fmt=webp&w=500">
+        <div class="overphoto"></div>
+        <div class="text">
+            <a href="home.html" style="text-decoration: none; color: white;">
+                <h1>مدرسينك</h1>
+            </a>
+            <div class="hhh">
+                <a href="infor.html" style="text-decoration: none; color: white;">
+                    <h2>في إيه هنا ؟</h2>
+                </a>
+                <h3>ادخل سجل متفكرش</h3>
+                <h4>سجلت قبل كدا</h4>
+                <h5>English</h5>
+            </div>
+        </div>
+        <div class="text2">
+            <h1>منصة مدرسينك</h1>
+            <p>في خدمة كل مدرس وطالب على مدار الـ 24 ساعة</p>
+        </div>
+    </div>
+    <div class="spacer"></div>
+
+
+    <div class="slide-in">الكورسات <br>المقترحه</div>
+    <div class="photo">
+        <div class="photo-card">
+            <div class="img-container">
+                <a href="mo.html">
+                <img src="https://cdn-icons-png.flaticon.com/256/7421/7421798.png">
+                </a>
+            </div>
+            <div class="photo-text">
+                <h2>مجمد عبد العزيز</h2>
+                <h3>كورس النحو كامل</h3>
+                <p><span class="price">400 جنيه</span> بدل من <del>600</del></p>
+            </div>
+        </div>
+        <div class="photo-card">
+            <div class="img-container">
+                <a href="eed.html">
+                <img src="https://cdn-icons-png.flaticon.com/256/4681/4681666.png">
+                </a>
+            </div>
+            <div class="photo-text">
+                <h2>عيدأسامه</h2>
+                <h3>كورس اول وحده </h3>
+                <p><span class="price">350 جنيه</span> بدل من <del>430</del></p>
+            </div>
+        </div>
+    </div>
+
+
+     <div class="slide-in">اختر مدرسك</div>
+     <div class="slider-container">
+                <div class="photo2-slider">
+                <div class="photo2-track">
+                <div class="photo-card">
+                    <a href="adel.html" style="text-decoration: none;color: black;">
+                <img src="https://cdn-icons-png.flaticon.com/256/13725/13725949.png">
+                <div class="photo-text2">
+                    <h2>عادل محمد</h2>
+                    <h3>مدرس انجليزي</h3>
+                </div>
+                    </a>
+            </div>
+         <div class="photo-card" >
+            <a href="eed.html"  style="text-decoration: none; color: black;">
+                <img src="https://cdn-icons-png.flaticon.com/256/4681/4681666.png">
+                <div class="photo-text2">
+                    <h2>عيد أسامه </h2>
+                    <h3>مدرس علوم</h3>
+                </div>
+            </a>
+                </div>
+                <div class="photo-card"  >
+                    <a href="abd.html"  style="text-decoration: none;color: black;">
+                <img src="https://cdn-icons-png.flaticon.com/256/11932/11932723.png">
+                <div class="photo-text2">
+                    <h2>عبد الله عيسي </h2>
+                    <h3>مدرس دراسات </h3>
+                </div>
+                    </a>
+                </div>
+                <div class="photo-card"  >
+                    <a href="hane.html"  style="text-decoration: none;color: black;">
+                <img src="https://cdn-icons-png.flaticon.com/256/11116/11116744.png">
+                <div class="photo-text2">
+                    <h2>هاني أحمد</h2>
+                    <h3>مدرس رياضات</h3>
+                </div>
+                    </a>
+                </div>
+
+                <div class="photo-card" >
+                    <a href="mo.html" style="text-decoration: none;color: black;" >
+                <img src="https://cdn-icons-png.flaticon.com/256/7421/7421798.png">
+                <div class="photo-text2">
+                    <h2>محمد عبد العزبز </h2>
+                    <h3>مدرس لغه عربيه </h3>
+                    </div>
+                    </a>
+                </div>
+                <div class="photo-card" >
+                    <a href="fatma.html"  style="text-decoration: none;color: black;">
+                <img src="https://cdn-icons-png.flaticon.com/256/10757/10757193.png">
+                <div class="photo-text2">
+                    <h2>فاطمه محمد </h2>
+                    <h3>مدرسه تربيه دينيه</h3>
+              </div>
+                    </a>
+                </div>    
+        </div>
+
+
+
+    <div class="slide-in">احنا ليه </div>
+             <div class="photo-row">
+                <div class="photo-card2">
+                    <img src="https://media.istockphoto.com/id/945663596/photo/texture-of-blue-paper.jpg?s=612x612&w=0&k=20&c=dWe4c4_haijXdwZ2uxeK69MzUgpkxDfuyhveTPX_c04=">
+                     <div class="photo-min">
+                        <p> نفتح لك باب، ونرسم لك درب </p>
+                     </div>
+                </div>
+                <div class="photo-card2">
+                    <img src="https://media.istockphoto.com/id/945663596/photo/texture-of-blue-paper.jpg?s=612x612&w=0&k=20&c=dWe4c4_haijXdwZ2uxeK69MzUgpkxDfuyhveTPX_c04=">
+                     <div class="photo-min">
+                        <p> معنا الحلم يقين، والطريق يزين </p>
+                     </div>
+                </div>
+                  <div class="photo-card2">
+                    <img src="https://media.istockphoto.com/id/945663596/photo/texture-of-blue-paper.jpg?s=612x612&w=0&k=20&c=dWe4c4_haijXdwZ2uxeK69MzUgpkxDfuyhveTPX_c04=">
+                     <div class="photo-min">
+                        <p>معانا التعليم متعة، والحلم بداية رحلة</p>
+                     </div>
+                </div>
+                <br>
+                <div class="photo-card2">
+                    <img src="https://media.istockphoto.com/id/945663596/photo/texture-of-blue-paper.jpg?s=612x612&w=0&k=20&c=dWe4c4_haijXdwZ2uxeK69MzUgpkxDfuyhveTPX_c04=">
+                     <div class="photo-min">
+                        <p>المعرفة قوة, والجدّ بداية كل خطوة</p>
+                     </div>
+                </div>
+                <div class="photo-card2">
+                    <img src="https://media.istockphoto.com/id/945663596/photo/texture-of-blue-paper.jpg?s=612x612&w=0&k=20&c=dWe4c4_haijXdwZ2uxeK69MzUgpkxDfuyhveTPX_c04=">
+                     <div class="photo-min">
+                        <p> سؤال وجواب، يفتحلك ألف باب </p>
+                     </div>
+                </div>
+                <div class="photo-card2">
+                    <img src="https://media.istockphoto.com/id/945663596/photo/texture-of-blue-paper.jpg?s=612x612&w=0&k=20&c=dWe4c4_haijXdwZ2uxeK69MzUgpkxDfuyhveTPX_c04=">
+                     <div class="photo-min">
+                        <p>  نتحدى ونفوز، ونكتشف وننجح </p>
+                     </div>
+                </div>
+             </div> 
+   
+
+    <!-- الفوتر المحسن -->
+    <div class="footer-container">
+        <div class="footer">
+            <img src="https://media.istockphoto.com/id/1010238190/photo/blue-defocused-blurred-motion-abstract-background.webp?b=1&s=612x612&w=0&k=20&c=gSBfGvcGjtiW1vNDglr82x-Y6FReNWz64E0QXX4Hr4k=">
+            <div class="slide-bottom">
+                <h1>مدرسينك</h1>
+                <p>للتواصل معنا: 0123456789</p>
+                <p>البريد الإلكتروني: info@madraseenak.com</p>
+                <p>تم صنعها بكل حب لطلابنا بناة المستقبل</p>
+            </div>
+            <div class="icon">
+                <a href="https://facebook.com">
+                    <img src="https://cdn-icons-png.flaticon.com/128/15047/15047435.png" alt="فيسبوك">
+                </a>
+                <a href="https://tiktok.com">
+                    <img src="https://cdn-icons-png.flaticon.com/128/2504/2504942.png" alt="تيك توك">
+                </a>
+                <a href="https://instagram.com">
+                    <img src="https://cdn-icons-png.flaticon.com/128/2111/2111463.png" alt="انستجرام">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2023 منصة مدرسينك. جميع الحقوق محفوظة</p>
+    </div>
+
+    <script>
+        // كود الجافاسكريبت الأصلي
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
+        
+        const slideElements = document.querySelectorAll('.slide-in');
+        slideElements.forEach(el => observer.observe(el));
+        
+        window.addEventListener('scroll', () => {
+            const text = document.querySelector('.text');
+            const contereHeight = document.querySelector('.contere').offsetHeight;
+            if(window.scrollY > contereHeight) {
+                text.classList.add('scrolled');
+            } else {
+                text.classList.remove('scrolled');
+            }
+        });
+        
+        // كود السلايدر
+        const track = document.querySelector('.photo2-track');
+        const slides = document.querySelectorAll('.photo2-track .photo-card');
+        const slideWidth = 305;
+        const totalSlides = slides.length;
+        const visibleSlides = 3;
+        let currentIndex = 0;
+
+        function updateSlider() {
+            const maxIndex = totalSlides - visibleSlides;
+            if (currentIndex > maxIndex) currentIndex = maxIndex;
+            if (currentIndex < 0) currentIndex = 0;
+            const offset = currentIndex * slideWidth;
+            track.style.transform = `translateX(${offset}px)`;
+        } 
+       
+        setInterval(() => {
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = totalSlides - visibleSlides;
+            }
+            updateSlider();
+        }, 3000);
+        
+        // أزرار التحكم بالسلايدر
+        document.querySelector('.slider-btn.left').addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateSlider();
+            }
+        });
+        
+        document.querySelector('.slider-btn.right').addEventListener('click', () => {
+            const maxIndex = totalSlides - visibleSlides;
+            if (currentIndex < maxIndex) {
+                currentIndex++;
+                updateSlider();
+            }
+        });
+    </script> 
+</body>
+</html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-image: url('https://i.postimg.cc/d3rQ86Vy/pinkfinal.jpg'); /* استخدم نفس الخلفية أو صورة مناسبة */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #2f2f2f;
+      text-align: center;
+      padding: 50px 20px;
+    }
+    html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.main-content {
+  flex: 1;
+  margin-top: 60px;
+  padding-top: 50px;
+  padding-bottom: 40px;
+}
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .sub-logo {
+      font-size: 14px;
+      margin-bottom: 40px;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 40px;
+    }
+
+    .contact-item {
+      margin-bottom: 30px;
+    }
+
+    .contact-item i {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #2f2f2f;
+    }
+
+    .contact-item p {
+      margin: 5px 0;
+      font-size: 18px;
+    }
+
+    hr {
+  width: 60%;
+  border: none;         /* نشيل الـ border العادي */
+  height: 2px;           /* نحدد السمك */
+  background-color: #333; /* اللون */
+  margin: 20px auto;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%; 
+  padding: 10px 25px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: rgb(255, 240, 247);
+  box-shadow: 0 2px 30px rgba(0,0,0,0.1);
+  z-index: 999;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+}
+
+.mode-images {
+display: flex;
+flex-direction: column; 
+align-items: center; 
+gap: 10px; 
+}
+
+.mode-images img {
+width: 20px;
+height: 20px;
+transition: transform 0.3s ease;
+margin-right: 10px; 
+}
+
+
+
+.home-icon {
+  margin-right: 8px; 
+  width: 24px; 
+  height: 24px; 
+}
+
+.brand-name {
+  font-family: 'Open Sans', 'Helvetica Neue';
+  font-size: 24px;
+  font-weight: bold; 
+  margin-right: 20px; 
+  text-decoration: none;
+
+}
+
+.nav-logo {
+  width: 40px; 
+  height: 40px;
+}
+
+.nav-home {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+
+.nav-home img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.nav-wrapper {
+  width: 100%;
+  max-width: 1500px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; 
+  padding: 0 20px; 
+}
+
+
+.nav-left, .nav-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-left {
+  margin-bottom: 10px;
+}
+
+.nav-right {
+  gap: 25px; 
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.nav-item img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+
+
+.nav-photo {
+width: 60px;  
+height: 60px;
+margin-right: 10px;
+vertical-align: middle;
+}
+
+.nav-photo:last-of-type {
+width: 30px;  
+height: 30px;
+}
+.main-content {
+  margin-top: 60px; 
+}
+.footer-wrapper {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  transform: scale(1.02);
+  
+}
+
+.main-footer {
+  background-color: rgb(255, 240, 247);
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: black;
+  padding: 5px 20px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+  margin: 10px;
+}
+
+.footer-section h3 {
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: rgb(180, 100, 160);
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 40px;
+}
+
+.footer-section a {
+  text-decoration: none;
+  color: black;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: #d63384;
+  transform: translateX(5px);
+}
+
+.payment-logos {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.payment-logos img {
+  width: 50px;
+  height: auto;
+}
+
+.bottom-footer {
+  background-color: #322f2f;
+  padding: 10px 0;
+  text-align: center;
+  color: white;
+  font-size: 12px;
+}
+  </style>
+</head>
+<body>
+<!-- Navigation bar -->
+<nav class="navbar">
+  <div class="nav-wrapper">
+    <div class="nav-left">
+      <img class="nav-logo" src="https://cdn.pixabay.com/photo/2012/04/13/00/44/leaves-31399_1280.png" alt="">
+      <a href="index.html" class="brand-name">
+        <span style="color: rgb(180, 100, 160);"> Aura Flora</span>
+      </a>
+    </div>
+    <div class="nav-right">
+      <a href="login.html" class="nav-item" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/128/1144/1144760.png" alt="Login Icon">
+        Log In
+      </a>
+      <a href="basket.html" class="nav-item"target="_blank" >
+        <img src="https://cdn-icons-png.flaticon.com/128/263/263142.png" alt="Basket Icon">
+        Basket
+      </a>
+      
+      <img class="nav-photo" src="https://img.icons8.com/?size=64&id=49318&format=png">
+      <div class="mode-images" >
+        <img onclick="toggleDarkMode()" src="https://cdn-icons-png.flaticon.com/128/606/606807.png" alt=" " title="Dark Mode">
+      </div>
+      
+      
+      
+    </div>
+  </div>
+</nav>
+<!--content-->
+  <div class="main-content">
+
+  <div class="logo"><img src="https://cdn.pixabay.com/photo/2012/04/13/00/44/leaves-31399_1280.png" style="width:60px;height: 60px;"></div>
+  <div class="sub-logo" style="font-size: 25px;">Aura Flora</div>
+
+  <h1>Contact Us</h1>
+
+  <div class="contact-item">
+    <i class="fas fa-phone"></i>
+    <p>123-456-7890</p>
+  </div>
+  <hr>
+  <div class="contact-item">
+    <i class="fas fa-envelope"></i>
+    <p>auraflora3@gmail.com</p>
+  </div>
+  <hr>
+  <div class="contact-item">
+    <i class="fas fa-map-marker-alt"></i>
+    <p>123 Eltahrir St., Cairo City</p>
+  </div>
+  <hr>
+  <div class="contact-item">
+    <i class="fas fa-globe"></i>
+    <p>www.auraflora.com</p>
+  </div>
+</div>
+
+<!-- footer -->
+<div class="footer-wrapper">
+  <footer class="main-footer">
+    <div class="footer-container">
+      
+      <div class="footer-section">
+        <h3>Get To Know Us</h3>
+        <ul>
+          <li><a href="aboutus.html" target="_blank">About Us</a></li>
+          <li><a href="faqs.html" target="_blank">FAQs</a></li>
+          <li><a href="Policy.html" target="_blank">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>My Account</h3>
+        <ul>
+          <li><a href="log.html" target="_blank">Log In</a></li>
+          <li><a href="basket.html" target="_blank">Basket</a></li>
+          <li><a href="infor.html" target="_blank">My Orders</a></li>
+          <li><a href="contact.html" target="_blank">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <ul>
+          <li>022856466</li>
+          <li>0124576488</li>
+          <li>0105589690</li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Payment Methods</h3>
+        <div class="payment-logos">
+          <img src="https://i.postimg.cc/SRdVrWyv/cash1.jpg" alt="أمان"  style="width: 50px; height: auto;">
+          <img src="https://i.postimg.cc/SsW-gnBHq/cash2.png"  alt="أبل باي" style="width: 50px; height: auto;">
+          <img src="https://i.postimg.cc/2j7Hrf47/cash3.png"  alt="الايد الي ماسكة ورد" style="width: 50px; height: auto;">
+          <img src="https://i.postimg.cc/7Zd9mPkw/cash8.png"  alt="SYMPL" style="width: 50px; height: auto;">
+          <img src="https://i.postimg.cc/GtLxHHkJ/cash11.png"  alt="value" style="width: 50px; height: auto;">
+          <img src="https://i.postimg.cc/Ss7GSW-zx/cash12.png"  alt="visa" style="width: 50px; height: auto;">
+          <img src="https://i.postimg.cc/rsMQxhL4/cash4.jpg"  alt="Contact" style="width: 50px; height: auto;">
+          <img src="https://i.postimg.cc/Gh3XpSKw/cash5.png"  alt="فرصة" style="width: 50px; height: auto;">
+          <img src="https://i.postimg.cc/43c5MCft/cash6.png"  alt="master card" style="width: 50px; height: auto;">
+          <img src="https://i.postimg.cc/zXd0HS2L/cash7.png"  alt="اورنج كاش" style="width: 50px; height: auto;">
+          <img src="https://i.postimg.cc/7Zd9mPkw/cash8.png"  alt="بايموب" style="width: 50px; height: auto;">
+          <img src="https://i.postimg.cc/vZcXrgC0/cash9.png"  alt="بريميوم كارد" style="width: 50px; height: auto;">
+          <img src="https://i.postimg.cc/4yWbtsPC/cash13.png"  alt="فودافون كاش" style="width: 50px; height: auto;">
+
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <div class="bottom-footer">
+    © 2025 Auraflora. All rights reserved.
+  </div>
+</div>
+</div>
+
+
+</body>
+</html>
